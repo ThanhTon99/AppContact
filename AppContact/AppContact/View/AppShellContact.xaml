@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewModel="clr-namespace:AppContact.ViewModel;assembly=AppContact"
+             x:Class="AppContact.AppShellContact">
+
+    <ContentPage.BindingContext>
+        <viewModel:BookInfoRepository />
+    </ContentPage.BindingContext>
+
+    <syncfusion:SfListView x:Name="listView"
+                           ItemsSource="{Binding BookInfo}"
+                           ItemSpacing="0,0,0,0"
+                           IsStickyHeader="true"
+                           IsStickyFooter="true"
+                           ItemSize="60">
+        <!-- Header -->
+        <syncfusion:SfListView.HeaderTemplate>
+            <DataTemplate>
+                <Grid BackgroundColor="WhiteSmoke" HeightRequest="50">
+                    <Label Margin="15,5" Text="Điện thoại" FontAttributes="Bold" FontSize="20" TextColor="Black" />
+                    <Grid Margin="20,0" HorizontalOptions="EndAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+                        <Label Style="{StaticResource LabelStyle}" Text="&#x2b;" FontSize="25"
+                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddContactCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Grid.Column="1" Style="{StaticResource LabelStyle}" Text="&#xf002;" FontSize="15"
+                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding DemoShareCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Grid.Column="2" Style="{StaticResource LabelStyle}" Text="&#xf142;" FontSize="20"
+                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.HeaderTemplate>
+        <!-- Orientation="Horizontal" --> 
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="0.85*" />
+                    </Grid.ColumnDefinitions>
+                    <border:SfBorder Grid.Column="0" BorderColor="WhiteSmoke" HorizontalOptions="Start"
+                                     VerticalOptions="Start" CornerRadius="30"
+                                     Margin="15,10,0,0"
+                                     BackgroundColor="#F79900" HeightRequest="40" WidthRequest="40">
+                        <Grid>
+                            <magic:GradientView VerticalOptions="FillAndExpand">
+                                <magic:GradientView.GradientSource>
+                                    <magic:LinearGradient Angle="225">
+                                        <magic:GradientStop Color="{Binding BookColor}" Offset="0" />
+                                        <magic:GradientStop Color="DodgerBlue" Offset="1" />
+                                    </magic:LinearGradient>
+                                </magic:GradientView.GradientSource>
+                            </magic:GradientView>
+                            <Label Text="{Binding BookName[0]}" TextColor="White" HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand" FontSize="20" />
+                        </Grid>
+                    </border:SfBorder>
+
+                    <Label  x:Name="Label" Grid.Column="1" Text="{Binding BookName}"
+                           HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"
+                           FontSize="16">
+                    </Label>
+                    <BoxView Grid.Column="1" Color="Gray"
+                             WidthRequest="Infinity"
+                             HeightRequest="1"
+                             VerticalOptions="EndAndExpand"
+                             HorizontalOptions="EndAndExpand" />
+                    <!-- FontAttributes="Bold" -->
+                    <!-- <Label Grid.Column="1" Text="{Binding BookDescription}" TextColor="Black" FontSize="15"/> -->
+                    
+                    <!-- Detail -->
+                    <!-- <Grid.GestureRecognizers> -->
+                    <!--     <TapGestureRecognizer -->
+                    <!--         NumberOfTapsRequired="1" -->
+                    <!--         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookInfoRepository}}, Path =ItemTapped}" -->
+                    <!--         CommandParameter="{Binding .}"> -->
+                    <!--     </TapGestureRecognizer> -->
+                    <!-- </Grid.GestureRecognizers> -->
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+        <!-- Footer -->
+        <syncfusion:SfListView.FooterTemplate>
+            <DataTemplate>
+                <Grid BackgroundColor="WhiteSmoke">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Bàn phím"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"
+                           FontSize="16" />
+                    <Label Grid.Column="1" Text="Gần đây"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"
+                           FontSize="16" />
+                    <Label Grid.Column="2" Text="Danh bạ"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"
+                           FontSize="16" />
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.FooterTemplate>
+    </syncfusion:SfListView>
+</ContentPage>

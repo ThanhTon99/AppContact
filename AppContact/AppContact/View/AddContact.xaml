@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:effects="clr-namespace:AppContact.Effects"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             BackgroundColor="White"
+             xmlns:vm="clr-namespace:AppContact.ViewModel"
+             Title="{Binding TitleBook}"
+             x:Class="AppContact.AddContact">
+    <ContentPage.BindingContext>
+        <vm:ContactViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <StackLayout HeightRequest="120">
+            <border:SfBorder BorderColor="Wheat" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                             CornerRadius="30"
+                             BackgroundColor="#F79900" HeightRequest="60" WidthRequest="60">
+                <Grid>
+                    <magic:GradientView VerticalOptions="FillAndExpand">
+                        <magic:GradientView.GradientSource>
+                            <magic:LinearGradient Angle="225">
+                                <magic:GradientStop Color="Red" Offset="0" />
+                                <magic:GradientStop Color="Orange" Offset="1" />
+                            </magic:LinearGradient>
+                        </magic:GradientView.GradientSource>
+                    </magic:GradientView>
+                    <Label Text="&#xf030;" FontFamily="{StaticResource FontAwesomeLight}" TextColor="White"
+                           Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                           FontSize="20" />
+                </Grid>
+            </border:SfBorder>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                    <StackLayout Orientation="Horizontal" Padding="10,0">
+                        <Label Style="{StaticResource LabelStyle}"
+                               Text="&#xf007;">
+                        </Label>
+                        <Entry Placeholder="Tên" Margin="10,0,0,0" HorizontalOptions="FillAndExpand"
+                               FontSize="Body" Text="{Binding Name}">
+                            <Entry.Effects>
+                                <effects:PlainEntry />
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>  
+                </Frame>
+                <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20" IsVisible="{Binding SlRow0}">
+                    <StackLayout Orientation="Horizontal" Padding="10,0">
+                        <Label Style="{StaticResource LabelStyle}" Text="&#xf007;">
+                        </Label>
+                        <Entry Placeholder="Tên phiên âm" Margin="10,0,0,0" FontSize="Body">
+                            <Entry.Effects>
+                                <effects:PlainEntry />
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20" IsVisible="{Binding SlRow0}">
+                    <StackLayout Orientation="Horizontal" Padding="10,0">
+                        <Label Style="{StaticResource LabelStyle}" Text="&#xf007;">
+                        </Label>
+                        <Entry Placeholder="Biệt danh" Margin="10,0,0,0" FontSize="Body">
+                            <Entry.Effects>
+                                <effects:PlainEntry />
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                    <StackLayout Orientation="Horizontal" Padding="10,0">
+                        <Label VerticalOptions="Center"
+                               Text="&#xf095;" Rotation="90" FontFamily="{StaticResource FontAwesomeLight}">
+                        </Label>
+                        <Entry Placeholder="Điện thoại" Margin="10,0,0,0" FontSize="Body" Text="{Binding Phone}">
+                            <Entry.Effects>
+                                <effects:PlainEntry />
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                    <StackLayout Orientation="Horizontal" Padding="10,0">
+                        <Label VerticalOptions="Center"
+                               Text="&#xf0e0;" FontFamily="{StaticResource FontAwesomeLight}">
+                        </Label>
+                        <Entry Placeholder="Email" Margin="10,0,0,0" FontSize="Body" Text="{Binding Email}">
+                            <Entry.Effects>
+                                <effects:PlainEntry />
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                    <StackLayout Orientation="Horizontal" Padding="10,0">
+                        <Label VerticalOptions="Center"
+                               Text="&#xf0c0;" FontFamily="{StaticResource FontAwesomeLight}">
+                        </Label>
+                        <Entry Placeholder="Nhóm" Margin="10,0,0,0" FontSize="Body">
+                            <Entry.Effects>
+                                <effects:PlainEntry />
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+                <StackLayout IsVisible="{Binding SlRow0}">
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf0f2;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Thông tin cơ quan" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf3c5;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Địa chỉ" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf274;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Ngày quan trọng" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf274;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Mối quan hệ" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xe1f;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Ghi chú" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf274;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Trang web" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf274;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Tài khoản messager" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf274;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Nhạc chuông" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0" Margin="5,0,5,5" CornerRadius="20">
+                        <StackLayout Orientation="Horizontal" Padding="10,0">
+                            <Label VerticalOptions="Center"
+                                   Text="&#xf274;" FontFamily="{StaticResource FontAwesomeLight}">
+                            </Label>
+                            <Entry Placeholder="Kiểu rung cuộc gọi" Margin="10,0,0,0" FontSize="Body">
+                                <Entry.Effects>
+                                    <effects:PlainEntry />
+                                </Entry.Effects>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!--Text-->
+        <StackLayout Margin="0,10" Orientation="Horizontal" HorizontalOptions="Center">
+            <Label VerticalOptions="Center"
+                   Text="{Binding TextLabel}" FontFamily="{StaticResource FontAwesomeLight}">
+            </Label>
+            <Label VerticalOptions="Center"
+                   Text="{Binding TextButton}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowHiddenRow0Command}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        
+        <!-- tabBar -->
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <Button Text="Thoát" BackgroundColor="White" TextTransform="None" Command="{Binding CancelCommand}"
+                    HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold">
+            </Button>
+            <Button Text="Xóa" BackgroundColor="White" TextTransform="None" Command="{Binding DeletedCommand}"
+                    HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" IsVisible="{Binding IsShowB}">
+            </Button>
+            <Button Text="Lưu" BackgroundColor="White" TextTransform="None" Command="{Binding SaveCommand}"
+                    HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold">
+            </Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

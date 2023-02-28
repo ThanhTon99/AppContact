@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContact.View.DemoShare">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text=""
+                   Placeholder="You want to share"
+                   x:Name="EntryShare"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center">
+            </Entry>
+            
+            <Button
+               x:Name="ButtonShare"
+               Clicked="ButtonShare_Clicked"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+               TextColor="Black"
+               BackgroundColor="Transparent"
+               Text="Shareee">
+                
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

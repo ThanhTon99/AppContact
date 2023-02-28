@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContact.App">
+    <Application.Resources>
+        
+        <ResourceDictionary>
+            
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeBrands">
+                <On Platform="Android" 
+                    Value="FontAwesome6Brands.otf#Regular" />
+                <On Platform="UWP" 
+                    Value="/Assets/FontAwesome6Brands.otf#Font Awesome 6 Brands" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeSolid">
+                <On Platform="Android" 
+                    Value="FontAwesome6Solid.otf#Regular" />
+                <On Platform="UWP" 
+                    Value="/Assets/FontAwesome6Solid.otf#Font Awesome 6 Solid" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeRegular">
+                <On Platform="Android" 
+                    Value="FontAwesome6Regular.otf#Regular" />
+                <On Platform="UWP" 
+                    Value="/Assets/FontAwesome6Regular.otf#Font Awesome 6 Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeLight">
+                <On Platform="Android" 
+                    Value="FontAwesome5Light.otf#Regular" />
+                <On Platform="UWP" 
+                    Value="/Assets/FontAwesome5Light.otf#Font Awesome 5 Light" />
+            </OnPlatform>
+            
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesomeLight}" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontSize" Value="Small" />
+                <!-- <Setter Property="BackgroundColor" Value="Bisque" /> -->
+            </Style>
+            
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>
